@@ -1,0 +1,565 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		441E74BE28742B8E00BACF8A /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441E74BD28742B8E00BACF8A /* CalendarCell.swift */; };
+		441E74C028742FF900BACF8A /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441E74BF28742FF900BACF8A /* CalendarHelper.swift */; };
+		441E74C2287545CA00BACF8A /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441E74C1287545CA00BACF8A /* CalendarViewController.swift */; };
+		441E74C6287579BA00BACF8A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441E74C5287579BA00BACF8A /* HomeViewController.swift */; };
+		441E74C828782E6800BACF8A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441E74C728782E6800BACF8A /* RegisterViewController.swift */; };
+		441E74CA287846F000BACF8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 441E74C9287846F000BACF8A /* GoogleService-Info.plist */; };
+		442F6522287407EE00074837 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F6521287407EE00074837 /* AppDelegate.swift */; };
+		442F6524287407EE00074837 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F6523287407EE00074837 /* SceneDelegate.swift */; };
+		442F6526287407EE00074837 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F6525287407EE00074837 /* ViewController.swift */; };
+		442F6529287407EE00074837 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442F6527287407EE00074837 /* Main.storyboard */; };
+		442F652B287407EF00074837 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 442F652A287407EF00074837 /* Assets.xcassets */; };
+		442F652E287407EF00074837 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442F652C287407EF00074837 /* LaunchScreen.storyboard */; };
+		443FBDD2288E61CC00226B78 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 443FBDD1288E61CC00226B78 /* FirebaseAnalytics */; };
+		443FBDD4288E61CC00226B78 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 443FBDD3288E61CC00226B78 /* FirebaseAppCheck */; };
+		443FBDD6288E61CC00226B78 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 443FBDD5288E61CC00226B78 /* FirebaseAuth */; };
+		443FBDD8288E61CC00226B78 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 443FBDD7288E61CC00226B78 /* FirebaseFirestore */; };
+		443FBDDA288E61CC00226B78 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 443FBDD9288E61CC00226B78 /* FirebaseMessaging */; };
+		443FBDDC288E61CC00226B78 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 443FBDDB288E61CC00226B78 /* FirebaseStorage */; };
+		443FBDDE288FA59400226B78 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443FBDDD288FA59400226B78 /* LoginViewController.swift */; };
+		443FBDE0288FD30500226B78 /* CreatePlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443FBDDF288FD30500226B78 /* CreatePlanViewController.swift */; };
+		443FBDE2289065E500226B78 /* PlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443FBDE1289065E500226B78 /* PlanTableViewCell.swift */; };
+		443FBDE428906D5800226B78 /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443FBDE328906D5800226B78 /* PlanViewController.swift */; };
+		443FBDE628912CBE00226B78 /* PlanDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443FBDE528912CBE00226B78 /* PlanDetailsViewController.swift */; };
+		443FBDEE2893B7F100226B78 /* EditPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443FBDED2893B7F100226B78 /* EditPlanViewController.swift */; };
+		443FBDF02894E2C200226B78 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443FBDEF2894E2C200226B78 /* ProgressViewController.swift */; };
+		443FBDF32897A4A200226B78 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 443FBDF22897A4A200226B78 /* Charts */; };
+		443FBDF62897A91500226B78 /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 443FBDF52897A91500226B78 /* TinyConstraints */; };
+		443FBDF82897D53600226B78 /* ChartXAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443FBDF72897D53600226B78 /* ChartXAxisFormatter.swift */; };
+		4447924A2899672D00709B46 /* DayDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444792492899672D00709B46 /* DayDetailsViewController.swift */; };
+		4447924E289A194D00709B46 /* InstructionalVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4447924D289A194D00709B46 /* InstructionalVideoViewController.swift */; };
+		44479251289A1A1100709B46 /* YouTubeiOSPlayerHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 44479250289A1A1100709B46 /* YouTubeiOSPlayerHelper */; };
+		44479253289A1B9700709B46 /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44479252289A1B9700709B46 /* WorkoutViewController.swift */; };
+		44479255289A44C800709B46 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44479254289A44C800709B46 /* FeedbackViewController.swift */; };
+		44F0816228A638BE00D34930 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F0816128A638BE00D34930 /* SettingsViewController.swift */; };
+		44F0816428A63EF800D34930 /* HelpCentreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F0816328A63EF800D34930 /* HelpCentreViewController.swift */; };
+		44F0816628A7711100D34930 /* HelpReceivedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F0816528A7711100D34930 /* HelpReceivedViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		441E74BD28742B8E00BACF8A /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		441E74BF28742FF900BACF8A /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
+		441E74C1287545CA00BACF8A /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		441E74C5287579BA00BACF8A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		441E74C728782E6800BACF8A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		441E74C9287846F000BACF8A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		442F651E287407EE00074837 /* CalendarExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		442F6521287407EE00074837 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		442F6523287407EE00074837 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		442F6525287407EE00074837 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		442F6528287407EE00074837 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		442F652A287407EF00074837 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		442F652D287407EF00074837 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		442F652F287407EF00074837 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		443FBDDD288FA59400226B78 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		443FBDDF288FD30500226B78 /* CreatePlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanViewController.swift; sourceTree = "<group>"; };
+		443FBDE1289065E500226B78 /* PlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTableViewCell.swift; sourceTree = "<group>"; };
+		443FBDE328906D5800226B78 /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
+		443FBDE528912CBE00226B78 /* PlanDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanDetailsViewController.swift; sourceTree = "<group>"; };
+		443FBDED2893B7F100226B78 /* EditPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPlanViewController.swift; sourceTree = "<group>"; };
+		443FBDEF2894E2C200226B78 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		443FBDF72897D53600226B78 /* ChartXAxisFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartXAxisFormatter.swift; sourceTree = "<group>"; };
+		444792492899672D00709B46 /* DayDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailsViewController.swift; sourceTree = "<group>"; };
+		4447924D289A194D00709B46 /* InstructionalVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionalVideoViewController.swift; sourceTree = "<group>"; };
+		44479252289A1B9700709B46 /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
+		44479254289A44C800709B46 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		44F0816128A638BE00D34930 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		44F0816328A63EF800D34930 /* HelpCentreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCentreViewController.swift; sourceTree = "<group>"; };
+		44F0816528A7711100D34930 /* HelpReceivedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpReceivedViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		442F651B287407EE00074837 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				443FBDD4288E61CC00226B78 /* FirebaseAppCheck in Frameworks */,
+				443FBDD6288E61CC00226B78 /* FirebaseAuth in Frameworks */,
+				443FBDF32897A4A200226B78 /* Charts in Frameworks */,
+				443FBDF62897A91500226B78 /* TinyConstraints in Frameworks */,
+				443FBDDA288E61CC00226B78 /* FirebaseMessaging in Frameworks */,
+				443FBDDC288E61CC00226B78 /* FirebaseStorage in Frameworks */,
+				443FBDD2288E61CC00226B78 /* FirebaseAnalytics in Frameworks */,
+				443FBDD8288E61CC00226B78 /* FirebaseFirestore in Frameworks */,
+				44479251289A1A1100709B46 /* YouTubeiOSPlayerHelper in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		442F6515287407EE00074837 = {
+			isa = PBXGroup;
+			children = (
+				442F6520287407EE00074837 /* CalendarExample */,
+				442F651F287407EE00074837 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		442F651F287407EE00074837 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				442F651E287407EE00074837 /* CalendarExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		442F6520287407EE00074837 /* CalendarExample */ = {
+			isa = PBXGroup;
+			children = (
+				441E74C9287846F000BACF8A /* GoogleService-Info.plist */,
+				441E74C1287545CA00BACF8A /* CalendarViewController.swift */,
+				442F6521287407EE00074837 /* AppDelegate.swift */,
+				442F6523287407EE00074837 /* SceneDelegate.swift */,
+				442F6525287407EE00074837 /* ViewController.swift */,
+				442F6527287407EE00074837 /* Main.storyboard */,
+				441E74BF28742FF900BACF8A /* CalendarHelper.swift */,
+				441E74BD28742B8E00BACF8A /* CalendarCell.swift */,
+				442F652A287407EF00074837 /* Assets.xcassets */,
+				442F652C287407EF00074837 /* LaunchScreen.storyboard */,
+				442F652F287407EF00074837 /* Info.plist */,
+				441E74C5287579BA00BACF8A /* HomeViewController.swift */,
+				441E74C728782E6800BACF8A /* RegisterViewController.swift */,
+				443FBDDD288FA59400226B78 /* LoginViewController.swift */,
+				443FBDDF288FD30500226B78 /* CreatePlanViewController.swift */,
+				443FBDE1289065E500226B78 /* PlanTableViewCell.swift */,
+				443FBDE328906D5800226B78 /* PlanViewController.swift */,
+				443FBDE528912CBE00226B78 /* PlanDetailsViewController.swift */,
+				443FBDED2893B7F100226B78 /* EditPlanViewController.swift */,
+				443FBDEF2894E2C200226B78 /* ProgressViewController.swift */,
+				443FBDF72897D53600226B78 /* ChartXAxisFormatter.swift */,
+				444792492899672D00709B46 /* DayDetailsViewController.swift */,
+				4447924D289A194D00709B46 /* InstructionalVideoViewController.swift */,
+				44479252289A1B9700709B46 /* WorkoutViewController.swift */,
+				44479254289A44C800709B46 /* FeedbackViewController.swift */,
+				44F0816128A638BE00D34930 /* SettingsViewController.swift */,
+				44F0816328A63EF800D34930 /* HelpCentreViewController.swift */,
+				44F0816528A7711100D34930 /* HelpReceivedViewController.swift */,
+			);
+			path = CalendarExample;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		442F651D287407EE00074837 /* CalendarExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 442F6532287407EF00074837 /* Build configuration list for PBXNativeTarget "CalendarExample" */;
+			buildPhases = (
+				442F651A287407EE00074837 /* Sources */,
+				442F651B287407EE00074837 /* Frameworks */,
+				442F651C287407EE00074837 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CalendarExample;
+			packageProductDependencies = (
+				443FBDD1288E61CC00226B78 /* FirebaseAnalytics */,
+				443FBDD3288E61CC00226B78 /* FirebaseAppCheck */,
+				443FBDD5288E61CC00226B78 /* FirebaseAuth */,
+				443FBDD7288E61CC00226B78 /* FirebaseFirestore */,
+				443FBDD9288E61CC00226B78 /* FirebaseMessaging */,
+				443FBDDB288E61CC00226B78 /* FirebaseStorage */,
+				443FBDF22897A4A200226B78 /* Charts */,
+				443FBDF52897A91500226B78 /* TinyConstraints */,
+				44479250289A1A1100709B46 /* YouTubeiOSPlayerHelper */,
+			);
+			productName = CalendarExample;
+			productReference = 442F651E287407EE00074837 /* CalendarExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		442F6516287407EE00074837 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					442F651D287407EE00074837 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 442F6519287407EE00074837 /* Build configuration list for PBXProject "CalendarExample" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 442F6515287407EE00074837;
+			packageReferences = (
+				443FBDD0288E61CC00226B78 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				443FBDF12897A4A200226B78 /* XCRemoteSwiftPackageReference "Charts" */,
+				443FBDF42897A91500226B78 /* XCRemoteSwiftPackageReference "TinyConstraints" */,
+				4447924F289A1A1100709B46 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
+			);
+			productRefGroup = 442F651F287407EE00074837 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				442F651D287407EE00074837 /* CalendarExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		442F651C287407EE00074837 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				442F652E287407EF00074837 /* LaunchScreen.storyboard in Resources */,
+				441E74CA287846F000BACF8A /* GoogleService-Info.plist in Resources */,
+				442F652B287407EF00074837 /* Assets.xcassets in Resources */,
+				442F6529287407EE00074837 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		442F651A287407EE00074837 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				443FBDF02894E2C200226B78 /* ProgressViewController.swift in Sources */,
+				4447924E289A194D00709B46 /* InstructionalVideoViewController.swift in Sources */,
+				44F0816228A638BE00D34930 /* SettingsViewController.swift in Sources */,
+				441E74C828782E6800BACF8A /* RegisterViewController.swift in Sources */,
+				44479255289A44C800709B46 /* FeedbackViewController.swift in Sources */,
+				441E74C2287545CA00BACF8A /* CalendarViewController.swift in Sources */,
+				441E74C028742FF900BACF8A /* CalendarHelper.swift in Sources */,
+				443FBDE2289065E500226B78 /* PlanTableViewCell.swift in Sources */,
+				441E74C6287579BA00BACF8A /* HomeViewController.swift in Sources */,
+				443FBDEE2893B7F100226B78 /* EditPlanViewController.swift in Sources */,
+				443FBDF82897D53600226B78 /* ChartXAxisFormatter.swift in Sources */,
+				442F6526287407EE00074837 /* ViewController.swift in Sources */,
+				44F0816628A7711100D34930 /* HelpReceivedViewController.swift in Sources */,
+				44F0816428A63EF800D34930 /* HelpCentreViewController.swift in Sources */,
+				442F6522287407EE00074837 /* AppDelegate.swift in Sources */,
+				443FBDE0288FD30500226B78 /* CreatePlanViewController.swift in Sources */,
+				443FBDE428906D5800226B78 /* PlanViewController.swift in Sources */,
+				4447924A2899672D00709B46 /* DayDetailsViewController.swift in Sources */,
+				44479253289A1B9700709B46 /* WorkoutViewController.swift in Sources */,
+				443FBDE628912CBE00226B78 /* PlanDetailsViewController.swift in Sources */,
+				442F6524287407EE00074837 /* SceneDelegate.swift in Sources */,
+				443FBDDE288FA59400226B78 /* LoginViewController.swift in Sources */,
+				441E74BE28742B8E00BACF8A /* CalendarCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		442F6527287407EE00074837 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				442F6528287407EE00074837 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		442F652C287407EF00074837 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				442F652D287407EF00074837 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		442F6530287407EF00074837 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		442F6531287407EF00074837 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		442F6533287407EF00074837 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 345S73US74;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CalendarExample/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.dana.CalendarExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		442F6534287407EF00074837 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 345S73US74;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CalendarExample/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.dana.CalendarExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		442F6519287407EE00074837 /* Build configuration list for PBXProject "CalendarExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				442F6530287407EF00074837 /* Debug */,
+				442F6531287407EF00074837 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		442F6532287407EF00074837 /* Build configuration list for PBXNativeTarget "CalendarExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				442F6533287407EF00074837 /* Debug */,
+				442F6534287407EF00074837 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		443FBDD0288E61CC00226B78 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		443FBDF12897A4A200226B78 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		443FBDF42897A91500226B78 /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		4447924F289A1A1100709B46 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/youtube/youtube-ios-player-helper.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		443FBDD1288E61CC00226B78 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 443FBDD0288E61CC00226B78 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		443FBDD3288E61CC00226B78 /* FirebaseAppCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 443FBDD0288E61CC00226B78 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAppCheck;
+		};
+		443FBDD5288E61CC00226B78 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 443FBDD0288E61CC00226B78 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		443FBDD7288E61CC00226B78 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 443FBDD0288E61CC00226B78 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		443FBDD9288E61CC00226B78 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 443FBDD0288E61CC00226B78 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		443FBDDB288E61CC00226B78 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 443FBDD0288E61CC00226B78 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		443FBDF22897A4A200226B78 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 443FBDF12897A4A200226B78 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
+		443FBDF52897A91500226B78 /* TinyConstraints */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 443FBDF42897A91500226B78 /* XCRemoteSwiftPackageReference "TinyConstraints" */;
+			productName = TinyConstraints;
+		};
+		44479250289A1A1100709B46 /* YouTubeiOSPlayerHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4447924F289A1A1100709B46 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */;
+			productName = YouTubeiOSPlayerHelper;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 442F6516287407EE00074837 /* Project object */;
+}
