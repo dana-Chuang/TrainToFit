@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseStorage
 
 class SettingsViewController: UIViewController
 {
@@ -13,12 +14,15 @@ class SettingsViewController: UIViewController
     @IBOutlet weak var txtFieldPW: UITextField!
     @IBOutlet weak var txtFieldPWConfirm: UITextField!
     @IBOutlet weak var labelErrMsg: UILabel!
+    @IBOutlet var popupView: UIView!
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         db = Firestore.firestore()
         ShowUserInfo()
+        
+        popupView.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.9, height: self.view.bounds.width * 0.5)
     }
     
     func ShowUserInfo()
@@ -109,6 +113,75 @@ class SettingsViewController: UIViewController
     
     @IBAction func DeactivateAccount(_ sender: Any)
     {
+        animatIn(desiredView: popupView)
+    }
+    
+    @IBAction func CancelDeactivation(_ sender: Any)
+    {
+        animateOut(desiredView: popupView)
+    }
+    
+    @IBAction func ProceedDeactivation(_ sender: Any)
+    {
+        let user = Auth.auth().currentUser
+        user?.delete { error in
+          if let error = error {
+            // An error happened.
+          } else {
+            // Account from Authentication section deleted.
+          }
+        }
         
+        //now delete data from firestore database
+        self.db.collection("Accounts").document("\(self.uid)").delete(){ err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
+        
+        //then delete file of profile image from storage
+        // Create a reference to the file to delete
+        let profileImgRef = Storage.storage().reference().child("user/profileImg/\(self.uid)")
+        // Delete the file
+        profileImgRef.delete { error in
+          if let error = error {
+            // Uh-oh, an error occurred!
+          } else {
+            // File deleted successfully
+          }
+        }
+        
+        //back to login page
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func animatIn(desiredView: UIView)
+    {
+        let backgroundView = self.view!
+        //attach the desired view to the screen
+        backgroundView.addSubview(desiredView)
+        //set the view's scaling to be 120%
+        desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        desiredView.alpha = 0
+        desiredView.center = backgroundView.center
+        
+        //animate the effect
+        UIView.animate(withDuration: 0.3, animations: {
+            desiredView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            desiredView.alpha = 1
+        })
+    }
+    
+    func animateOut(desiredView: UIView)
+    {
+        UIView.animate(withDuration: 0.3,animations: {
+            desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+            desiredView.alpha = 0
+        }, completion: { _ in
+            desiredView.removeFromSuperview()
+            
+        })
     }
 }

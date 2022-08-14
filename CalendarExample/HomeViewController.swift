@@ -51,6 +51,7 @@ class HomeViewController: UIViewController
     func showUserName()
     {
         //fetch username and show it in the middle
+        print(uid)
         db.collection("Accounts").document("\(uid)").getDocument{ (document, error) in
             if let document = document, document.exists {
                 let data = document.data()

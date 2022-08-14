@@ -1631,6 +1631,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="rTB-uo-vDY"/>
                     <connections>
                         <outlet property="labelErrMsg" destination="aLn-YW-h0D" id="Z9A-U3-fjh"/>
+                        <outlet property="popupView" destination="0Og-Mi-B3i" id="Je6-aL-JhZ"/>
                         <outlet property="txtFieldEmail" destination="AJ5-jl-4N7" id="Vyt-6o-KFV"/>
                         <outlet property="txtFieldPW" destination="piq-Ng-bGx" id="LnE-cK-vxC"/>
                         <outlet property="txtFieldPWConfirm" destination="5OO-0x-IID" id="gwJ-jy-akK"/>
@@ -1638,6 +1639,65 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qzd-5t-qde" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="0Og-Mi-B3i">
+                    <rect key="frame" x="0.0" y="0.0" width="380" height="250"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEACTIVATE ACCOUNT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9HT-w7-a4x">
+                            <rect key="frame" x="67.5" y="74" width="245" height="27"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure you want to delete your account? This will permanently delete all records of this account " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGc-9j-qmg">
+                            <rect key="frame" x="19" y="109" width="342" height="67"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="342" id="8uj-lk-wxf"/>
+                                <constraint firstAttribute="height" constant="67" id="NNa-h4-U8N"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Dd-tW-0sC">
+                            <rect key="frame" x="0.0" y="200" width="186" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="3UJ-WY-f4K"/>
+                                <constraint firstAttribute="width" constant="186" id="hSo-31-X3E"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="gray" title="Cancel"/>
+                            <connections>
+                                <action selector="CancelDeactivation:" destination="Sjg-5g-cqB" eventType="touchUpInside" id="VrD-LU-Sbt"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QAz-Wa-Grh">
+                            <rect key="frame" x="194" y="200" width="186" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="186" id="3Kb-sK-La8"/>
+                                <constraint firstAttribute="height" constant="50" id="Xhk-ad-nKe"/>
+                            </constraints>
+                            <color key="tintColor" systemColor="systemRedColor"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="gray" title="Delete"/>
+                            <connections>
+                                <action selector="ProceedDeactivation:" destination="Sjg-5g-cqB" eventType="touchUpInside" id="Veu-XV-wYC"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="8RP-KC-KCU"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="8RP-KC-KCU" firstAttribute="bottom" secondItem="4Dd-tW-0sC" secondAttribute="bottom" id="Aye-zp-qQc"/>
+                        <constraint firstItem="CGc-9j-qmg" firstAttribute="top" secondItem="9HT-w7-a4x" secondAttribute="bottom" constant="8" symbolic="YES" id="MD5-Cu-x8T"/>
+                        <constraint firstItem="4Dd-tW-0sC" firstAttribute="leading" secondItem="8RP-KC-KCU" secondAttribute="leading" id="QPi-lD-ip8"/>
+                        <constraint firstItem="8RP-KC-KCU" firstAttribute="top" secondItem="9HT-w7-a4x" secondAttribute="top" constant="-30" id="Rhd-AY-rW6"/>
+                        <constraint firstItem="CGc-9j-qmg" firstAttribute="centerX" secondItem="8RP-KC-KCU" secondAttribute="centerX" id="daa-Nj-U2B"/>
+                        <constraint firstItem="9HT-w7-a4x" firstAttribute="centerX" secondItem="8RP-KC-KCU" secondAttribute="centerX" id="hJb-y7-i3A"/>
+                        <constraint firstItem="8RP-KC-KCU" firstAttribute="bottom" secondItem="QAz-Wa-Grh" secondAttribute="bottom" id="l8h-t5-AFY"/>
+                        <constraint firstItem="8RP-KC-KCU" firstAttribute="trailing" secondItem="QAz-Wa-Grh" secondAttribute="trailing" id="qy4-Np-RO7"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="766.66666666666674" y="-745.3125"/>
         </scene>
