@@ -59,8 +59,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate
                 //save account to Firebase database, in the collection named "Accounts"
                 strongSelf.saveAccountToFirebaseDatabase(username: username,
                                                          uid: uid,
-                                                         email_address: email_address,
-                                                         password: password)
+                                                         email_address: email_address)
                 
                 //close the register page, back to login page
                 strongSelf.dismiss(animated: true, completion: nil)
@@ -75,13 +74,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate
         }
     }
     
-    func saveAccountToFirebaseDatabase(username: String, uid: String, email_address: String, password: String)
+    func saveAccountToFirebaseDatabase(username: String, uid: String, email_address: String)
     {
         //use user id as document id
         db.collection("Accounts").document("\(uid)").setData([
             "username": username,
-            "email_address": email_address,
-            "password": password
+            "email_address": email_address
         ]) { err in
             if let err = err {
                 print("RegisterViewControllerError: saveAccountToFirebaseDatabase -> writing document: \(err)")
