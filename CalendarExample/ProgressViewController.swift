@@ -2,10 +2,16 @@ import Foundation
 import UIKit
 import Charts
 import TinyConstraints
+import FirebaseAuth
+import FirebaseFirestore
+
 
 class ProgressViewController: UIViewController, ChartViewDelegate
 {
-
+    let uid : String = (Auth.auth().currentUser?.uid)!
+    var db: Firestore!
+    let dateFormatter = DateFormatter()
+    
     @IBOutlet weak var btnDropDown: UIButton!
     @IBOutlet weak var tblViewRecords: UITableView!
     
@@ -16,7 +22,7 @@ class ProgressViewController: UIViewController, ChartViewDelegate
         var weight: Double
     }
     var fitnessRecords: [Record] = []
-    var recordTitleList = ["Squat", "Press", "Deadlift", "Bench Press", "Weight"]
+    var recordTitleList = ["squat", "press", "deadlift", "bench_press", "weight"]
     var selectedDataType = ""
     
     lazy var lineChartView: LineChartView = {
@@ -36,7 +42,7 @@ class ProgressViewController: UIViewController, ChartViewDelegate
         let xAxis = chartView.xAxis
         xAxis.labelPosition = .bottom
         xAxis.labelFont = .boldSystemFont(ofSize: 12)
-        xAxis.setLabelCount(6, force: false)
+        xAxis.setLabelCount(entries.count, force: false)
         xAxis.labelTextColor = .white
         xAxis.axisLineColor = .systemPink
         
@@ -56,6 +62,10 @@ class ProgressViewController: UIViewController, ChartViewDelegate
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        db = Firestore.firestore()
+        dateFormatter.dateFormat = "MMM d, yyyy" //set date format
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC") // set timezone
+        
         tblViewRecords.delegate = self
         tblViewRecords.dataSource = self
         tblViewRecords.isHidden = true
@@ -99,22 +109,57 @@ class ProgressViewController: UIViewController, ChartViewDelegate
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight)
     {
-        print(entry)
+        //print(entry)
     }
     
-    func createDataEntries()
+//    func createDataEntries()
+//    {
+//
+//        let expDate1 = dateFormatter.date(from: "28/7/22")!
+//        fitnessRecords.append(Record(date: expDate1, weight: 45.0))
+//
+//        let expDate2 = dateFormatter.date(from: "30/7/22")!
+//        fitnessRecords.append(Record(date: expDate2, weight: 50.0))
+//
+//        let expDate3 = dateFormatter.date(from: "1/8/22")!
+//        fitnessRecords.append(Record(date: expDate3, weight: 57.0))
+//    }
+    
+    func queryData(recordName: String)
     {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yy"
+        //remove all data from the array -> delete what it h
+//        fitnessRecords.removeAll()
         
-        let expDate1 = dateFormatter.date(from: "28/7/22")!
-        fitnessRecords.append(Record(date: expDate1, weight: 45.0))
-        
-        let expDate2 = dateFormatter.date(from: "30/7/22")!
-        fitnessRecords.append(Record(date: expDate2, weight: 50.0))
-        
-        let expDate3 = dateFormatter.date(from: "1/8/22")!
-        fitnessRecords.append(Record(date: expDate3, weight: 57.0))
+        let dbRef = db.collection("Accounts").document("\(uid)").collection("plans")
+        var planID = String()
+        //query current plan ID
+        dbRef.whereField("status", isEqualTo: "Ongoing").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    planID = document.documentID
+                    dbRef.document("\(planID)").collection("histories").getDocuments() { (querySnapshot, err) in
+                        if let err = err {
+                            print("Error getting documents: \(err)")
+                        } else {
+                            for document in querySnapshot!.documents {
+                                //print("\(document.documentID) => \(document.data())")
+                                let hist_date_string = document.data()["date"] as? String ?? "Anonymous"
+                                let hist_date = self.dateFormatter.date(from: hist_date_string)!
+                                let hist_weight = document.data()["\(recordName)"] as! Double
+                                print("hist date: \(hist_date), hist weight: \(hist_weight)")
+                                self.fitnessRecords.append(Record(date: hist_date, weight: hist_weight))
+                            }
+                            print(self.fitnessRecords)
+                            self.setData()
+                        }
+                    }
+                    self.fitnessRecords.removeAll()
+                    self.entries.removeAll()
+                }
+            }
+        }
     }
     
     func setData()
@@ -146,6 +191,7 @@ class ProgressViewController: UIViewController, ChartViewDelegate
         let data = LineChartData(dataSet: set1)
         data.setDrawValues(false)
         lineChartView.data = data
+        lineChartView.isHidden = false
     }
 }
 
@@ -162,10 +208,11 @@ extension ProgressViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        lineChartView.isHidden = false
-        createDataEntries()
-        setData()
         selectedDataType = recordTitleList[indexPath.row]
+        queryData(recordName: selectedDataType)
+        //createDataEntries()
+        //setData()
+        //selectedDataType = recordTitleList[indexPath.row]
         btnDropDown.setTitle("\(selectedDataType)", for: .normal)
         animate(toogle: false)
     }
