@@ -15,7 +15,6 @@
 		441E74CA287846F000BACF8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 441E74C9287846F000BACF8A /* GoogleService-Info.plist */; };
 		442F6522287407EE00074837 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F6521287407EE00074837 /* AppDelegate.swift */; };
 		442F6524287407EE00074837 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F6523287407EE00074837 /* SceneDelegate.swift */; };
-		442F6526287407EE00074837 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442F6525287407EE00074837 /* ViewController.swift */; };
 		442F6529287407EE00074837 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442F6527287407EE00074837 /* Main.storyboard */; };
 		442F652B287407EF00074837 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 442F652A287407EF00074837 /* Assets.xcassets */; };
 		442F652E287407EF00074837 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 442F652C287407EF00074837 /* LaunchScreen.storyboard */; };
@@ -55,7 +54,6 @@
 		442F651E287407EE00074837 /* CalendarExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		442F6521287407EE00074837 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		442F6523287407EE00074837 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		442F6525287407EE00074837 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		442F6528287407EE00074837 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		442F652A287407EF00074837 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		442F652D287407EF00074837 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 				441E74C1287545CA00BACF8A /* CalendarViewController.swift */,
 				442F6521287407EE00074837 /* AppDelegate.swift */,
 				442F6523287407EE00074837 /* SceneDelegate.swift */,
-				442F6525287407EE00074837 /* ViewController.swift */,
 				442F6527287407EE00074837 /* Main.storyboard */,
 				441E74BF28742FF900BACF8A /* CalendarHelper.swift */,
 				441E74BD28742B8E00BACF8A /* CalendarCell.swift */,
@@ -248,7 +245,6 @@
 				441E74C6287579BA00BACF8A /* HomeViewController.swift in Sources */,
 				443FBDEE2893B7F100226B78 /* EditPlanViewController.swift in Sources */,
 				443FBDF82897D53600226B78 /* ChartXAxisFormatter.swift in Sources */,
-				442F6526287407EE00074837 /* ViewController.swift in Sources */,
 				44F0816628A7711100D34930 /* HelpReceivedViewController.swift in Sources */,
 				44F0816428A63EF800D34930 /* HelpCentreViewController.swift in Sources */,
 				442F6522287407EE00074837 /* AppDelegate.swift in Sources */,
@@ -342,6 +338,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -395,6 +392,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

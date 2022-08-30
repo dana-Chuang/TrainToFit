@@ -64,7 +64,7 @@ class EditPlanViewController: UIViewController
             return
         }
         start_date = dateFormatter.string(from: startDatePicker.date)
-        db.collection("Accounts").document("\(uid)").collection("plans").document("\(planID)").updateData([
+        db.collection("Accounts").document("\(uid)").collection("Plans").document("\(planID)").updateData([
             "plan_name" : edit_name,
             "start_weight" : edit_weight,
             "start_date" : start_date,
@@ -72,7 +72,7 @@ class EditPlanViewController: UIViewController
             "start_press" : edit_press,
             "start_deadlift" : edit_deadlift,
             "start_bench_press" : edit_bench_press,
-            "increments" : edit_increments
+            "increment" : edit_increments
         ]) { err in
             if let err = err {
                 print("Error updating document: \(err)")
@@ -80,9 +80,7 @@ class EditPlanViewController: UIViewController
                 print("Document: plan details successfully updated")
             }
         }
-        if let viewController = storyboard?.instantiateViewController(identifier: "plans_view") as? PlanViewController
-        {
-            navigationController?.pushViewController(viewController, animated: true)
-        }
+        //back to Home page
+        navigationController?.popToRootViewController(animated: true)
     }
 }

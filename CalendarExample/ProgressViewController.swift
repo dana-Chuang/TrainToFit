@@ -44,7 +44,7 @@ class ProgressViewController: UIViewController, ChartViewDelegate
         xAxis.labelFont = .boldSystemFont(ofSize: 12)
         xAxis.setLabelCount(entries.count, force: false)
         xAxis.labelTextColor = .white
-        xAxis.axisLineColor = .systemPink
+        xAxis.axisLineColor = .systemYellow
         
         // Define chart xValues formatter
         let formatter = DateFormatter()
@@ -112,25 +112,10 @@ class ProgressViewController: UIViewController, ChartViewDelegate
         //print(entry)
     }
     
-//    func createDataEntries()
-//    {
-//
-//        let expDate1 = dateFormatter.date(from: "28/7/22")!
-//        fitnessRecords.append(Record(date: expDate1, weight: 45.0))
-//
-//        let expDate2 = dateFormatter.date(from: "30/7/22")!
-//        fitnessRecords.append(Record(date: expDate2, weight: 50.0))
-//
-//        let expDate3 = dateFormatter.date(from: "1/8/22")!
-//        fitnessRecords.append(Record(date: expDate3, weight: 57.0))
-//    }
-    
     func queryData(recordName: String)
     {
-        //remove all data from the array -> delete what it h
-//        fitnessRecords.removeAll()
         
-        let dbRef = db.collection("Accounts").document("\(uid)").collection("plans")
+        let dbRef = db.collection("Accounts").document("\(uid)").collection("Plans")
         var planID = String()
         //query current plan ID
         dbRef.whereField("status", isEqualTo: "Ongoing").getDocuments() { (querySnapshot, err) in
@@ -139,19 +124,16 @@ class ProgressViewController: UIViewController, ChartViewDelegate
             } else {
                 for document in querySnapshot!.documents {
                     planID = document.documentID
-                    dbRef.document("\(planID)").collection("histories").getDocuments() { (querySnapshot, err) in
+                    dbRef.document("\(planID)").collection("Histories").getDocuments() { (querySnapshot, err) in
                         if let err = err {
                             print("Error getting documents: \(err)")
                         } else {
                             for document in querySnapshot!.documents {
-                                //print("\(document.documentID) => \(document.data())")
                                 let hist_date_string = document.data()["date"] as? String ?? "Anonymous"
                                 let hist_date = self.dateFormatter.date(from: hist_date_string)!
                                 let hist_weight = document.data()["\(recordName)"] as! Double
-                                print("hist date: \(hist_date), hist weight: \(hist_weight)")
                                 self.fitnessRecords.append(Record(date: hist_date, weight: hist_weight))
                             }
-                            print(self.fitnessRecords)
                             self.setData()
                         }
                     }
@@ -175,14 +157,9 @@ class ProgressViewController: UIViewController, ChartViewDelegate
         }
         
         let set1 = LineChartDataSet(entries: entries, label: "Weight(lbs)")
-        //set1.drawCirclesEnabled = false
-        //making line smooth
-        set1.mode = .cubicBezier
         set1.lineWidth = 3
         set1.setColor(.white)
-        set1.fill = Fill(color: .white)
-        set1.fillAlpha = 0.8
-        set1.drawFilledEnabled = true
+        set1.setCircleColor(.white)
 
         //remove horizontal line of highlight indicator
         set1.drawHorizontalHighlightIndicatorEnabled = false
@@ -210,9 +187,6 @@ extension ProgressViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedDataType = recordTitleList[indexPath.row]
         queryData(recordName: selectedDataType)
-        //createDataEntries()
-        //setData()
-        //selectedDataType = recordTitleList[indexPath.row]
         btnDropDown.setTitle("\(selectedDataType)", for: .normal)
         animate(toogle: false)
     }

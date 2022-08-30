@@ -23,6 +23,7 @@ class PlanViewController: UIViewController
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //clear all lists and update new ones by fetchData()
         plan_IDs.removeAll()
         plan_names.removeAll()
         create_dates.removeAll()
@@ -32,7 +33,7 @@ class PlanViewController: UIViewController
     
     func fetchData()
     {
-        db.collection("Accounts").document("\(uid)").collection("plans").getDocuments(){(querySnapshot, err) in
+        db.collection("Accounts").document("\(uid)").collection("Plans").getDocuments(){(querySnapshot, err) in
         if let err = err {
             print("Error getting documents: \(err)")
         } else {
@@ -66,7 +67,7 @@ extension PlanViewController: UITableViewDelegate
             let status = plan_status[indexPath.row]
             viewController.planName = plan_name
             viewController.planID = plan_id
-            db.collection("Accounts").document("\(uid)").collection("plans").document("\(plan_id)").getDocument{ (document, error) in
+            db.collection("Accounts").document("\(uid)").collection("Plans").document("\(plan_id)").getDocument{ (document, error) in
                 if let document = document, document.exists {
                     viewController.labelStartWeight.text = "\(document.data()?["start_weight"] ?? "Anonymous")"
                     let create_date_string = document.data()?["start_date"] as? String ?? "Anonymous"
@@ -89,8 +90,7 @@ extension PlanViewController: UITableViewDelegate
                         viewController.labelSchedule.text = "Tue/Thu/Sat"
                     }
                     
-                    //default, fixed
-                    viewController.labelIncrement.text = "5.0"
+                    viewController.labelIncrement.text = "\(document.data()?["increment"] ?? "Anonymous")"
                     
                     //disable completePlanButton and editPlanButton if the plan status is "Completed"
                     if (status == "Completed")

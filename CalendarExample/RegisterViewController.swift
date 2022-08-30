@@ -37,7 +37,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate
         var uid = ""
         if (password == confirm_pw) //ensure there is a match between pw and confirm_pw
         {
-            //firebase- create user with email and password
+            //firebase auth- create user with email and password
             FirebaseAuth.Auth.auth().createUser(withEmail: email_address, password: password, completion: {[weak self]result, error in
                 guard let strongSelf = self else
                 {

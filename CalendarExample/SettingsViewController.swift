@@ -127,6 +127,8 @@ class SettingsViewController: UIViewController
         user?.delete { error in
           if let error = error {
             // An error happened.
+              print("Firebase Authentication deletion has errors")
+              print(error)
           } else {
             // Account from Authentication section deleted.
           }

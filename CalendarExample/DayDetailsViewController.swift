@@ -38,7 +38,7 @@ class DayDetailsViewController: UIViewController
         labelSelectedDay.text = selectedDay
         
         //locate the plan with status: Ongoing
-        db.collection("Accounts").document("\(uid)").collection("plans").whereField("status", isEqualTo: "Ongoing").getDocuments() { (querySnapshot, err) in
+        db.collection("Accounts").document("\(uid)").collection("Plans").whereField("status", isEqualTo: "Ongoing").getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -46,7 +46,7 @@ class DayDetailsViewController: UIViewController
                     self.ongoingPlanDocID = document.documentID
                     self.increment = document.data()["increment"] as! Double
                     //only one document
-                    self.db.collection("Accounts").document("\(self.uid)").collection("plans").document("\(self.ongoingPlanDocID)").collection("histories").whereField("date", isEqualTo: "\(self.selectedDay)").getDocuments() {(querySnapshot, err) in
+                    self.db.collection("Accounts").document("\(self.uid)").collection("Plans").document("\(self.ongoingPlanDocID)").collection("Histories").whereField("date", isEqualTo: "\(self.selectedDay)").getDocuments() {(querySnapshot, err) in
                         if let err = err {
                             print("Error getting documents: \(err)")
                         } else {

@@ -36,7 +36,7 @@ class PlanDetailsViewController: UIViewController
     
     @IBAction func completePlan(_ sender: Any)
     {
-        db.collection("Accounts").document("\(uid)").collection("plans").document("\(planID)").updateData([
+        db.collection("Accounts").document("\(uid)").collection("Plans").document("\(planID)").updateData([
             "status": "Completed"
         ]) { err in
             if let err = err {

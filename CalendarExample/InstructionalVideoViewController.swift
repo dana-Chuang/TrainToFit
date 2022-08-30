@@ -10,6 +10,8 @@ class InstructionalVideoViewController: UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        //videos are referenced from the Starting Strength channel:
+        //https://www.youtube.com/c/AasgaardCoStartingStrength
         if (workoutType == "Squat")
         {
             playerView.load(withVideoId: "nhoikoUEI8U")

@@ -20,6 +20,9 @@ class FeedbackViewController: UIViewController
     var plan_doc_id = ""
     var hist_doc_id = ""
     var workout_date = ""
+    var workout1 = ""
+    var workout2 = ""
+    var workout3 = ""
     var increment = Double()
     var workout1_status = Bool() //final status
     var workout2_status = Bool()
@@ -50,6 +53,9 @@ class FeedbackViewController: UIViewController
         super.viewDidLoad()
         db = Firestore.firestore()
         fetchDataOfCurrentHistory()
+        labelWorkoutType1.text = workout1
+        labelWorkoutType2.text = workout2
+        labelWorkoutType3.text = workout3
         
         //get substring from current hist id and make a new one (by adding 1)
         let start = hist_doc_id.index(hist_doc_id.startIndex, offsetBy: 7) //substring:history
@@ -162,7 +168,7 @@ class FeedbackViewController: UIViewController
         workout2_status = (imgHappyFace2.isHighlighted && set4_status && set5_status && set6_status)
         workout3_status = (imgHappyFace3.isHighlighted && set7_status)
         
-        let dbRef = db.collection("Accounts").document("\(uid)").collection("plans").document("\(plan_doc_id)").collection("histories")
+        let dbRef = db.collection("Accounts").document("\(uid)").collection("Plans").document("\(plan_doc_id)").collection("Histories")
         print(type(of: dbRef))
         if (workout_type == "A")
         {
@@ -287,7 +293,7 @@ class FeedbackViewController: UIViewController
         if workout2_status
         {
             dbRef.document("\(new_hist_doc_id)").updateData([
-                "bench_press": (press+increment)
+                "bench_press": (bench_press+increment)
             ]){ err in
                 if let err = err {
                     print("Error updating document: \(err)")
@@ -315,7 +321,7 @@ class FeedbackViewController: UIViewController
     
     func fetchDataOfCurrentHistory()
     {
-        db.collection("Accounts").document("\(uid)").collection("plans").document("\(plan_doc_id)").collection("histories").document("\(hist_doc_id)").getDocument{ (document, error) in
+        db.collection("Accounts").document("\(uid)").collection("Plans").document("\(plan_doc_id)").collection("Histories").document("\(hist_doc_id)").getDocument{ (document, error) in
             if let document = document, document.exists {
                 let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                 print("Document data: \(dataDescription)")

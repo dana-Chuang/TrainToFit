@@ -13,6 +13,7 @@ class CreatePlanViewController: UIViewController
     @IBOutlet weak var txtFieldPress: UITextField!
     @IBOutlet weak var txtFieldDeadlift: UITextField!
     @IBOutlet weak var txtFieldBenchPress: UITextField!
+    @IBOutlet weak var txtFieldIncrement: UITextField!
     @IBOutlet weak var stepperSquat: UIStepper!
     @IBOutlet weak var stepperPress: UIStepper!
     @IBOutlet weak var stepperDeadlift: UIStepper!
@@ -22,6 +23,7 @@ class CreatePlanViewController: UIViewController
     @IBOutlet weak var labelWeightErrMsg: UILabel!
     @IBOutlet weak var labelDateErrMsg: UILabel!
     @IBOutlet weak var labelTypeErrMsg: UILabel!
+    @IBOutlet weak var labelIncreErrMsg: UILabel!
     @IBOutlet weak var labelErrMsg: UILabel!
     
     var db: Firestore!
@@ -156,6 +158,24 @@ class CreatePlanViewController: UIViewController
         txtFieldBenchPress.text = "\(stepperBenchPress.value)"
     }
     
+    @IBAction func txtFieldIncrementsChecked(_ sender: Any)
+    {
+        guard let incre  = Double(txtFieldIncrement.text!)
+        else {
+            labelIncreErrMsg.text = "Not a valid number: \(String(txtFieldIncrement.text!))"
+            labelIncreErrMsg.isHidden = false
+            return
+        }
+        if (incre < 0.1)
+        {
+            labelIncreErrMsg.text = "Increment too low!"
+            labelIncreErrMsg.isHidden = false
+            return
+        } else {
+            labelIncreErrMsg.isHidden = true
+        }
+    }
+    
     @IBAction func GenderSegChanged(_ sender: Any)
     {
         if (segmentGender.selectedSegmentIndex == 0)
@@ -249,7 +269,8 @@ class CreatePlanViewController: UIViewController
               let squat = Double(txtFieldSquat.text!), !squat.isNaN,
               let press = Double(txtFieldPress.text!), !press.isNaN,
               let deadlift = Double(txtFieldDeadlift.text!), !deadlift.isNaN,
-              let bench_press = Double(txtFieldBenchPress.text!), !bench_press.isNaN
+              let bench_press = Double(txtFieldBenchPress.text!), !bench_press.isNaN,
+              let incre = Double(txtFieldIncrement.text!), !incre.isNaN
         else {
             labelErrMsg.text = "Missing field data or incorrect inputs"
             labelErrMsg.isHidden = false
@@ -265,7 +286,7 @@ class CreatePlanViewController: UIViewController
             return
         } else {
             labelDateErrMsg.isHidden = true
-            let plan_ref = db.collection("Accounts").document("\(uid)").collection("plans")
+            let plan_ref = db.collection("Accounts").document("\(uid)").collection("Plans")
             
             //make all plans to be "Completed" before the new plan is created
             plan_ref.getDocuments(){(querySnapshot, err) in
@@ -291,7 +312,7 @@ class CreatePlanViewController: UIViewController
                 "start_press": press,
                 "start_deadlift": deadlift,
                 "start_bench_press": bench_press,
-                "increment": 5.0
+                "increment": incre
             ]){ err in
                 if let err = err {
                     print("CreatePlanViewController:CreatePlan -> Error writing document: \(err)")
@@ -329,7 +350,7 @@ class CreatePlanViewController: UIViewController
             next_date = Calendar.current.date(byAdding: .day, value: 2, to: start_date)!
         }
         let next_date_str = dateFormatter.string(from: next_date)
-        planRef.document("\(planID)").collection("histories").document("history1").setData([
+        planRef.document("\(planID)").collection("Histories").document("history1").setData([
             "date": startDateString,
             "workout_type": "A",
             "squat": startSquat,

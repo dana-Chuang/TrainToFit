@@ -31,7 +31,8 @@ class WorkoutViewController: UIViewController
     var weight1 = ""
     var weight2 = ""
     var weight3 = ""
-    var timeRemaining : Int = 60
+    var timeRemaining1 : Int = 60
+    var timeRemaining2 : Int = 60
     var timer1: Timer!
     var timer2: Timer!
     
@@ -106,14 +107,14 @@ class WorkoutViewController: UIViewController
     
     @objc func step1()
     {
-        if (timeRemaining > 0)
+        if (timeRemaining1 > 0)
         {
-            timeRemaining -= 1
+            timeRemaining1 -= 1
         } else {
             timer1.invalidate()
-            timeRemaining = 60
+            timeRemaining1 = 60
         }
-        labelTimeRemaining1.text = "\(timeRemaining)"
+        labelTimeRemaining1.text = "\(timeRemaining1)"
     }
     
     @IBAction func timerCountdown2(_ sender: Any)
@@ -123,14 +124,14 @@ class WorkoutViewController: UIViewController
     
     @objc func step2()
     {
-        if (timeRemaining > 0)
+        if (timeRemaining2 > 0)
         {
-            timeRemaining -= 1
+            timeRemaining2 -= 1
         } else {
             timer2.invalidate()
-            timeRemaining = 60
+            timeRemaining2 = 60
         }
-        labelTimeRemaining2.text = "\(timeRemaining)"
+        labelTimeRemaining2.text = "\(timeRemaining2)"
     }
     
     @IBAction func CompleteWorkout(_ sender: Any)
@@ -141,6 +142,9 @@ class WorkoutViewController: UIViewController
             viewController.workout_date = workoutDate
             viewController.next_date_str = nextWorkoutDate
             viewController.increment = workoutIncre
+            viewController.workout1 = labelWorkoutName1.text!
+            viewController.workout2 = labelWorkoutName2.text!
+            viewController.workout3 = labelWorkoutName3.text!
             viewController.set1_status = imgCircle1.isHighlighted
             viewController.set2_status = imgCircle2.isHighlighted
             viewController.set3_status = imgCircle3.isHighlighted
